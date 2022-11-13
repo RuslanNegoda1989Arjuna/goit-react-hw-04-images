@@ -14,7 +14,7 @@ export const App = () => {
   const [page, setPage] = useState(1);
   const [gallery, setGallery] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [largeImage, setLargeImage] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [showLoadMore, setShowLoadMore] = useState(false);
@@ -47,7 +47,8 @@ export const App = () => {
         });
       });
     } catch (error) {
-      setError(error);
+      console.log(error);
+      // setError(error);
     } finally {
       setIsLoading(false);
     }
