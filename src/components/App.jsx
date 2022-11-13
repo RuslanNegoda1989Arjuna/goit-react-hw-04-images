@@ -14,7 +14,6 @@ export const App = () => {
   const [page, setPage] = useState(1);
   const [gallery, setGallery] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState(null);
   const [largeImage, setLargeImage] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [showLoadMore, setShowLoadMore] = useState(false);
@@ -23,7 +22,7 @@ export const App = () => {
     try {
       setIsLoading(true);
 
-      if (!search) {
+      if (search === '') {
         return;
       }
 
@@ -46,9 +45,8 @@ export const App = () => {
           return state.concat(data.hits);
         });
       });
-    } catch (error) {
-      console.log(error);
-      // setError(error);
+    } catch ({ message }) {
+      toast.error(message);
     } finally {
       setIsLoading(false);
     }
