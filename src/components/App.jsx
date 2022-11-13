@@ -59,7 +59,7 @@ export const App = () => {
 
   // отримуємо значення з інпут форми пошуку
   const onSearchValue = value => {
-    if (value.value === '') {
+    if (value.value.trim() === '') {
       return toast.warn('Enter a word for search');
     } else if (value.value === search) {
       return;
