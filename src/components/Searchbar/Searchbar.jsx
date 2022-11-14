@@ -3,6 +3,8 @@ import { Formik } from 'formik';
 import { ButtonSubmit, FormSearch, Header, Input } from './Searchbar.styled';
 import { FiSearch } from 'react-icons/fi';
 
+const modalRoot = document.querySelector('modal-root');
+
 const initialValues = {
   value: '',
 };

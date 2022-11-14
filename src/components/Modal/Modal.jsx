@@ -2,6 +2,12 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Overlay, ModalImg } from './Modal.styled';
 
+// портал для модалки
+
+import { createPortal } from 'react-dom';
+const modalRoot = document.querySelector('#modal-root');
+
+// модалка на классах
 export default class Modal extends Component {
   static propTypes = {
     toggleModal: PropTypes.func.isRequired,
@@ -28,12 +34,13 @@ export default class Modal extends Component {
     const { handleBackdropClick } = this;
     const { largeImage } = this.props;
 
-    return (
+    return createPortal(
       <Overlay onClick={handleBackdropClick}>
         <ModalImg>
           <img src={largeImage} alt="" />
         </ModalImg>
-      </Overlay>
+      </Overlay>,
+      modalRoot
     );
   }
 }
